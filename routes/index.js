@@ -15,8 +15,7 @@ router.post("/message", (req, res, next) => {
       res.status(200).json(JSON.stringify(resp.data));
     })
     .catch(resp => {
-      console.log("here");
-      res.status(500).json(resp.data);
+      res.status(500).json({message : "Error en el servicio"});
     });
 });
 
