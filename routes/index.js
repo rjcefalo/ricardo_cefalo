@@ -14,11 +14,11 @@ router.post("/message", (req, res, next) => {
 
   if (destination == '') {
     res
-      .status(400)
+      .status(422)
       .json({ message: "Destination must be at least 1 character long" });
   }
   if (body == '') {
-    res.status(400).json({ message: "Body must be at least 1 character long" });
+    res.status(422).json({ message: "Body must be at least 1 character long" });
   }
 
   if (
