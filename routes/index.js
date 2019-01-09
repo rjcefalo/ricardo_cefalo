@@ -12,12 +12,12 @@ router.post("/message", (req, res, next) => {
   const { destination, body } = req.body;
   console.log(typeof destination);
 
-  if (destination == '') {
+  if (destination == "") {
     res
       .status(422)
       .json({ message: "Destination must be at least 1 character long" });
   }
-  if (body == '') {
+  if (body == "") {
     res.status(422).json({ message: "Body must be at least 1 character long" });
   }
 
@@ -36,8 +36,6 @@ router.post("/message", (req, res, next) => {
   if (!destination) {
     res.status(400).json({ message: "Destination key missing" });
   }
-
-
 
   MessageappUtils.postMessage(destination, body)
     .then(resp => {
