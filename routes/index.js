@@ -52,7 +52,6 @@ router.post('/credit', (req, res, next) => {
   const { credit } = req.body;
 
   CreditCheck.add(credit, res)
-
 });
 
 module.exports = router;
