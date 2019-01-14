@@ -6,12 +6,11 @@ Send all request to:
 http://localhost:9001
 ```
 *Methods:*
+Path: /message
 
 ```
 GET
-Path: /message
 ```
-
 *Response*
 
 Status 200:
@@ -56,16 +55,20 @@ Status 200:
 OK
 ```
 
-*ERRORS:* 
+Path: /credit
+```
+POST
+Add credit to send messages
+```
+Content-Type: 'application/json'
+Request: 
+{
+  "credit": Number
+}
 
-Status 400:
+*Response:*
+
+Status 200:
 ```
-You can't provide an empty field
-Numbers are not allowed
-Destination or Body fields missing
-Destination name or message text had exceed the length limit
-```
-Status 500:
-```
-Internal Server error
+OK
 ```
