@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+const primary = mongoose.createConnection(process.env.DBURL)
+const secundary = mongoose.createConnection(process.env.RSURL)
 const Schema = mongoose.Schema;
 
 const mailSchema = new Schema({
@@ -7,5 +8,6 @@ const mailSchema = new Schema({
   body: String,
 });
 
-const Mail = mongoose.model('Mail', mailSchema);
-module.exports = Mail;
+const Mail = primary.model('Mail', mailSchema);
+const MailRep = secundary.model('Mail', mailSchema)
+module.exports = { Mail, MailRep };

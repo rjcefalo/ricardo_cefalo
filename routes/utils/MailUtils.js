@@ -1,14 +1,18 @@
-const Mail = require('../../models/Mail');
+const {Mail,MailRep} = require('../../models/Mail');
 
 module.exports = {
   create(destination, body) {
     const newMail = new Mail({ destination, body });
-    return newMail.save();
+    const newMailRep = new MailRep({ destination, body });
+    newMail.save();
+    newMailRep.save();
+    return ;
   },
   get() {
     return Mail.find({});
   },
   delete() {
+    MailRep.remove({})
     return Mail.remove({});
   },
   timeoutCheck(resp, res) {

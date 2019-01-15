@@ -1,4 +1,4 @@
-const Credit = require('../../models/Credit');
+const { Credit, CreditRep } = require('../../models/Credit');
 const axios = require("axios")
 
 module.exports = {
@@ -7,10 +7,29 @@ module.exports = {
             if (resp.length < 1) {
                 const newCredit = new Credit({ credit: amount })
                 newCredit.save()
-                    .then(resp => { res.status(200).json({ message: `Added ${amount} credit` }); })
+                    .then(resp => {
+                        const newCredit2 = new CreditRep({ credit: amount })
+                        newCredit2.save()
+                            .then(resp => { res.status(200).json({ message: `Added ${amount} credit` }); })
+                            .catch(resp => {
+                                Credit.remove({})
+                                res.status(400).json({ message: `Error adding credit` })
+                            })
+                    })
+                    .catch(resp => {
+                        res.status(400).json({ message: `Error adding credit` })
+                    })
+
             } else {
-                Credit.findOneAndUpdate({ _id: `${resp[0]._id}` }, { credit: resp[0].credit + amount })
-                    .then(resp => { res.status(200).json({ message: `Added ${amount} credit` }); })
+                Credit.update({ credit: resp[0].credit + amount })
+                    .then(respx => {
+                        CreditRep.update({ credit: resp[0].credit + amount })
+                            .then(respx => { res.status(200).json({ message: `Added ${amount} credit` }); })
+                            .catch(respx => {
+                                Credit.update({ credit: resp[0].credit - amount })
+                                res.status(400).json({ message: `Error adding credit` });
+                            })
+                    })
                     .catch(resp => { res.status(400).json({ message: `Error adding credit` }); })
             }
         })
