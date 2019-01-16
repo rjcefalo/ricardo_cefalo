@@ -29,9 +29,12 @@ Returns Mail collection
 }
 
 ```
+
 ```
 POST
+```
 
+```
 Content-Type: 'application/json'
 Request: 
 {
@@ -51,7 +54,9 @@ DELETE
 Deletes every mail created from the database
 ```
 
+*Response*
 ```
+
 Status 200:
 
 OK
@@ -59,6 +64,7 @@ OK
 
 Path: /credit
 ```
+
 POST
 
 Add credit to send messages
