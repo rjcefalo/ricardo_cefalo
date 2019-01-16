@@ -9,6 +9,7 @@ module.exports = {
     return ;
   },
   get() {
+
     return Mail.find({});
   },
   delete() {

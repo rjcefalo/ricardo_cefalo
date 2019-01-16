@@ -32,9 +32,10 @@ module.exports = {
                                 res.status(400).json({ message: `Error adding credit` });
                             })
                     })
-                    .catch(resp => { 
+                    .catch(resp => {
                         DBUtils.swap()
-                        res.status(400).json({ message: `Error adding credit` }); })
+                        res.status(400).json({ message: `Error adding credit` });
+                    })
             }
         })
     },
@@ -52,8 +53,9 @@ module.exports = {
         Credit.find({}).then(resp => {
             console.log(resp)
             Credit.findOneAndUpdate({ _id: `${resp[0]._id}` }, { credit: resp[0].credit - 1 })
-                .then(resp => console.log("1"))
+                .then(resp => CreditRep.update({ credit: resp[0].credit - 1 }))
                 .catch(resp => console.log("0"))
+
         })
     }
 }
