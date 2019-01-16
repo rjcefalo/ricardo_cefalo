@@ -19,8 +19,8 @@ services:
       - 27017:27017
   replica:
     image: mongo
-    command: mongod --port 27018
+    command: mongod
     volumes:
       - ./data/replica:/data/replica
     ports:
-      - 27018:27018
+      - 27018:27017

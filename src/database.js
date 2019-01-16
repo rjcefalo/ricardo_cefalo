@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const servers = {
-  primary: "exercise5_mongodb_1:27017",
-  replica: "exercise5_replica_1:27018"
+  primary: "ricardo_cefalo_mongodb_1:27017",
+  replica: "ricardo_cefalo_replica_1:27017"
   // primary: "127.0.0.1:27017",
   // replica: "127.0.0.1:27018"
 };
@@ -15,7 +15,10 @@ function createConnection(name, server, database) {
     isActive: true,
     conn: mongoose.createConnection(`mongodb://${server}/${database}`, {
       useNewUrlParser: true,
-      autoReconnect: true
+      autoReconnect: true,
+      connectTimeoutMS: 30000,
+      reconnectInterval: 500,
+      reconnectTries: Number.MAX_VALUE
     })
   };
 }
@@ -36,14 +39,21 @@ function setupConnection(connection, backup) {
   });
 }
 
-const connections = [
-  createConnection("PRIMARY", servers.primary, database),
-  createConnection("REPLICA", servers.replica, database)
-];
+let connections = [{}, {}];
 
-connections[0].isPrimary = true;
-setupConnection(connections[0], connections[1]);
-setupConnection(connections[1], connections[0]);
+setTimeout(function() {
+  connections = [
+    createConnection("PRIMARY", servers.primary, database),
+    createConnection("REPLICA", servers.replica, database)
+  ]
+
+  connections[0].isPrimary = true;
+  setupConnection(connections[0], connections[1]);
+  setupConnection(connections[1], connections[0]);
+
+  console.log("Node up:", connections[0].name);
+  console.log("Node up:", connections[1].name);
+}, 30000);
 
 module.exports = {
   get: function(dbKey) {

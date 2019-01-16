@@ -53,31 +53,31 @@ function updateCreditTransaction(conditions, newValue) {
     });
 }
 
-module.exports = function(conditions, newValue, cb) {
+module.exports = function (conditions, newValue, cb) {
   if (database.isReplicaOn()) {
-    mutex.lock(function() {
-      updateCreditTransaction(conditions, newValue)
+
+    updateCreditTransaction(conditions, newValue)
       .then(doc => {
-        mutex.unlock();
+
         cb(doc);
       })
       .catch(err => {
-        mutex.unlock();
+
         cb(undefined, err);
       });
-    })
+
   } else {
-    mutex.lock(function() {
-      updateCredit(Credit(), conditions, newValue)
+
+    updateCredit(Credit(), conditions, newValue)
       .then(doc => {
         console.log("Credit updated successfully", doc);
-        mutex.unlock();
+
         cb(doc);
       })
       .catch(err => {
-        mutex.unlock();
+
         cb(undefined, err);
       });
-    });
+
   }
 };
