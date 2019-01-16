@@ -6,11 +6,6 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
-const DBUtils = require("./database")
-
-
-
-// DBUtils.connectDB(process.env.DBURL,process.env.RSURL)
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);

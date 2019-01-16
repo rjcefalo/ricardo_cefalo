@@ -1,6 +1,7 @@
+const DBUtils = require("../DBUtils")
 const mongoose = require('mongoose');
-const primary = mongoose.createConnection(process.env.DBURL)
-const secundary = mongoose.createConnection(process.env.RSURL)
+const primary = mongoose.createConnection(DBUtils.getPrimary())
+const secundary = mongoose.createConnection(DBUtils.getSecundary())
 const Schema = mongoose.Schema;
 
 const creditSchema = new Schema({

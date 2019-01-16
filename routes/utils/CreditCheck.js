@@ -1,3 +1,4 @@
+const DBUtils = require("../../DBUtils")
 const { Credit, CreditRep } = require('../../models/Credit');
 const axios = require("axios")
 
@@ -17,6 +18,7 @@ module.exports = {
                             })
                     })
                     .catch(resp => {
+                        DBUtils.swap()
                         res.status(400).json({ message: `Error adding credit` })
                     })
 
@@ -30,7 +32,9 @@ module.exports = {
                                 res.status(400).json({ message: `Error adding credit` });
                             })
                     })
-                    .catch(resp => { res.status(400).json({ message: `Error adding credit` }); })
+                    .catch(resp => { 
+                        DBUtils.swap()
+                        res.status(400).json({ message: `Error adding credit` }); })
             }
         })
     },
