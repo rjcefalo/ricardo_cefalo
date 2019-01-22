@@ -1,5 +1,5 @@
 {
-  "name": "exercise5",
+  "name": "exercise6",
   "version": "1.0.0",
   "description": "Cabify bootcamp exercise 5",
   "repository": {
@@ -13,12 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bull": "^3.5.2",
+    "bull": "^3.4.8",
     "express": "^4.16.4",
     "express-json-validator-middleware": "^1.2.3",
-    "locks": "^0.2.2",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "uuid": "^3.3.2"
   }
 }

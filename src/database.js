@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
+const urls = require("./urls");
 
-const servers = {
-  primary: "ricardo_cefalo_mongodb_1:27017",
-  replica: "ricardo_cefalo_replica_1:27017"
-  // primary: "127.0.0.1:27017",
-  // replica: "127.0.0.1:27018"
-};
 const database = "cabify_bootcamp";
 
 function createConnection(name, server, database) {
@@ -15,10 +10,7 @@ function createConnection(name, server, database) {
     isActive: true,
     conn: mongoose.createConnection(`mongodb://${server}/${database}`, {
       useNewUrlParser: true,
-      autoReconnect: true,
-      connectTimeoutMS: 30000,
-      reconnectInterval: 500,
-      reconnectTries: Number.MAX_VALUE
+      autoReconnect: true
     })
   };
 }
@@ -39,21 +31,14 @@ function setupConnection(connection, backup) {
   });
 }
 
-let connections = [{}, {}];
+const connections = [
+  createConnection("PRIMARY", urls.MONGODB_URL, database),
+  createConnection("REPLICA", urls.REPLICA_URL, database)
+];
 
-setTimeout(function() {
-  connections = [
-    createConnection("PRIMARY", servers.primary, database),
-    createConnection("REPLICA", servers.replica, database)
-  ]
-
-  connections[0].isPrimary = true;
-  setupConnection(connections[0], connections[1]);
-  setupConnection(connections[1], connections[0]);
-
-  console.log("Node up:", connections[0].name);
-  console.log("Node up:", connections[1].name);
-}, 30000);
+connections[0].isPrimary = true;
+setupConnection(connections[0], connections[1]);
+setupConnection(connections[1], connections[0]);
 
 module.exports = {
   get: function(dbKey) {
@@ -67,7 +52,6 @@ module.exports = {
       console.log("Requested connection:", dbKey);
       console.log("Found:", conn.name);
     }
-    debugger;
     return conn.conn;
   },
 
