@@ -8,6 +8,7 @@ const {
 
 const sendMessage = require("./src/controllers/sendMessage");
 const getMessages = require("./src/controllers/getMessages");
+const getCredit = require("./src/controllers/getCredit");
 const updateCredit = require("./src/controllers/updateCredit");
 const getMessageStatus = require("./src/controllers/getMessageStatus");
 
@@ -65,6 +66,8 @@ app.post(
 );
 
 app.get("/messages", getMessages);
+
+app.get("/credit", getCredit);
 
 app.get("/message/:messageId/status", getMessageStatus);
 

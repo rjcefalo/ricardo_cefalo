@@ -69,7 +69,7 @@ app.get("/messages", getMessages);
 app.get("/message/:messageId/status", getMessageStatus);
 
 app.use(function(err, req, res, next) {
-  console.log(res.body);
+  //console.log(res.body);
   if (err instanceof ValidationError) {
     res.sendStatus(400);
   } else {
@@ -78,5 +78,5 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(9006, function() {
-  console.log("App started on PORT 9006");
+  //console.log("App started on PORT 9006");
 });
