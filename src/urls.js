@@ -6,8 +6,8 @@
 // };
 
 module.exports = {
-  MONGODB_URL: "mongodb:27017",
-  REPLICA_URL: "replica:27018",
+  MONGODB_URL: "ricardo_cefalo_mongodb_1:27017",
+  REPLICA_URL: "ricardo_cefalo_replica_1:27018",
   REDIS_URL: "redis://redis:6379",
-  MESSAGEAPP_HOST: "messageapp"
+  MESSAGEAPP_HOST: "ricardo_cefalo_messageapp_1"
 };
