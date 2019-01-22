@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bull": "^3.5.2",
     "express": "^4.16.4",
     "express-json-validator-middleware": "^1.2.3",
     "locks": "^0.2.2",
