@@ -1,37 +1,111 @@
+# version: "3"
+# services:
+#   exercise6:
+#     build: .
+#     ports:
+#       - "9006:9006"
+#     links:
+#       - messageapp
+#       - mongodb
+#       - replica
+#       - redis
+#     depends_on:
+#       - messageapp
+#       - mongodb
+#       - replica
+#       - redis
+#   messageapp:
+#     image: cabify/backend-bootcamp-messageapp
+#     ports:
+#       - "3000:3000"
+#   mongodb:
+#     image: mongo
+#     volumes:
+#       - ./data/db:/data/db
+#     ports:
+#       - 27017:27017
+#   replica:
+#     image: mongo
+#     command: mongod --port 27018
+#     volumes:
+#       - ./data/replica:/data/replica
+#     ports:
+#       - 27018:27018
+#   redis:
+#     image: redis
+#     ports:
+#       - 6379:6379
+
+#################################################################################
+################################# Microservices #################################
+#################################################################################
+
 version: "3"
 services:
-  exercise6:
-    build: .
+  message:
+    build: message/
     ports:
       - "9006:9006"
     links:
       - messageapp
-      - mongodb
-      - replica
+      - mongodb_message
+      - replica_message
       - redis
+      - credit
     depends_on:
       - messageapp
-      - mongodb
-      - replica
+      - mongodb_message
+      - replica_message
+      - redis
+  credit:
+    build: credit/
+    ports:
+      - "9016:9016"
+    links:
+      - mongodb_credit
+      - replica_credit
+      - redis
+    depends_on:
+      - mongodb_credit
+      - replica_credit
       - redis
   messageapp:
     image: cabify/backend-bootcamp-messageapp
     ports:
       - "3000:3000"
-  mongodb:
+
+  mongodb_credit:
     image: mongo
+    command: mongod --port 27017    
     volumes:
-      - ./data/db:/data/db
+      - ./credit/data/db:/credit/data/db
     ports:
       - 27017:27017
-  replica:
+  replica_credit:
     image: mongo
-    command: mongod --port 27018
+    command: mongod --port 27018    
     volumes:
-      - ./data/replica:/data/replica
+      - ./credit/data/replica:/credit/data/replica
     ports:
       - 27018:27018
+
+  mongodb_message:
+    image: mongo
+    command: mongod --port 27027
+    volumes:
+      - ./message/data/db:/message/data/db
+    ports:
+      - 27027:27027
+  replica_message:
+    image: mongo
+    command: mongod --port 27028
+    volumes:
+      - ./message/data/replica:/message/data/replica
+    ports:
+      - 27028:27028
+
   redis:
     image: redis
     ports:
       - 6379:6379
+
