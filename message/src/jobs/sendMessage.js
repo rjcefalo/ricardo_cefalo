@@ -1,9 +1,11 @@
 const http = require("http");
 const uuid = require("uuid/v1");
 
-const queue = require("../queue");
+const queue = require("../MessageQueue");
 const saveMessage = require("../clients/saveMessage");
 const urls = require("../urls");
+const CreditQueue = require("../CreditQueue");
+
 
 queue.process(function(job, done) {
   const messageData = Object.assign({}, job.data);
@@ -73,7 +75,10 @@ module.exports = function addJob(jobParams) {
 
   return processingMessage(messageParams)
     .then(() => {
-      return queue.add(messageParams, jobOpts);
+      console.log ("/////////////////////////      params to be sent to credit queue        ////////////////////////////")
+      console.log(messageParams)
+      console.log("\n\n\n\n\n")
+      return CreditQueue(messageParams)
     })
     .then(() => {
       return messageId;

@@ -6,8 +6,8 @@ module.exports = function (req, res) {
       const response = {
         messageId
       };
+
       res.statusCode = 200;
       res.end(JSON.stringify(response));
     });
-
 };
