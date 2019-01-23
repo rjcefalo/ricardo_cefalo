@@ -8,7 +8,6 @@ const {
 
 const sendMessage = require("./src/controllers/sendMessage");
 const getMessages = require("./src/controllers/getMessages");
-const updateCredit = require("./src/controllers/updateCredit");
 const getMessageStatus = require("./src/controllers/getMessageStatus");
 
 const app = express();
@@ -37,31 +36,11 @@ const messageSchema = {
   }
 };
 
-const creditSchema = {
-  type: "object",
-  required: ["amount"],
-  properties: {
-    location: {
-      type: "string"
-    },
-    amount: {
-      type: "number"
-    }
-  }
-};
-
 app.post(
   "/messages",
   bodyParser.json(),
   validate({ body: messageSchema }),
   sendMessage
-);
-
-app.post(
-  "/credit",
-  bodyParser.json(),
-  validate({ body: creditSchema }),
-  updateCredit
 );
 
 app.get("/messages", getMessages);

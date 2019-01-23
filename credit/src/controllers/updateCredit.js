@@ -8,7 +8,7 @@ module.exports = function(req, res) {
     },
     function(_result, error) {
       if (error) {
-        res.statusCode = 500;
+        res.statusCode = 400;
         res.end(error);
       }
       res.end("ok");

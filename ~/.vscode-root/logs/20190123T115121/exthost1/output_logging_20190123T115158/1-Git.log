@@ -1,0 +1,171 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git config --get commit.template
+Open repository: /home/ricardo/code/ricardo_cefalo
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :message/src/clients/getCredit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :message/src/clients/updateCredit.js
+> git show :message/src/controllers/getMessageStatus.js
+> git show :message/src/controllers/updateCredit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :message/src/models/credit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git show :message/src/transactions/updateCredit.js
+> git show :message/src/utils.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :credit/src/queue.js
+> git check-ignore -z --stdin
+> git show :credit/src/transactions/updateCredit.js
+> git show :credit/src/transactions/saveMessage.js
+> git show :credit/src/database.js
+> git show :credit/index.js
+> git show :credit/src/controllers/getCredit.js
+> git check-ignore -z --stdin
+> git show :credit/src/clients/getCredit.js
+> git check-ignore -z --stdin
+> git show :credit/index.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :message/index.js
+> git show :message/src/controllers/sendMessage.js
+> git show :message/src/jobs/sendMessage.js
+> git show :message/src/clients/saveMessage.js
+> git show :message/index.js
+> git show :message/src/controllers/sendMessage.js
+> git show :message/src/jobs/sendMessage.js
+> git show :message/src/clients/saveMessage.js
+> git show :message/src/controllers/sendMessage.js
+> git show :message/src/jobs/sendMessage.js
+> git show :message/src/clients/saveMessage.js
+> git show :message/src/jobs/sendMessage.js
+> git show :message/src/clients/saveMessage.js
+> git show :credit/src/clients/updateCredit.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :message/src/clients/saveMessage.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :message/src/clients/saveMessage.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :credit/src/transactions/updateCredit.js
+> git show :message/src/controllers/sendMessage.js
+> git show :credit/src/clients/getCredit.js
+> git show :credit/index.js
+> git show :credit/src/controllers/updateCredit.js
+> git show :credit/src/clients/updateCredit.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :credit/index.js
+> git show :credit/src/controllers/updateCredit.js
+> git show :credit/src/controllers/sendMessage.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :credit/src/clients/saveMessage.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :credit/src/transactions/saveMessage.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :credit/Dockerfile
+> git show :credit/index.js
+> git show :credit/src/controllers/updateCredit.js
+> git show :credit/src/clients/updateCredit.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :credit/src/database.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :credit/src/clients/updateCredit.js
+> git show :credit/src/controllers/updateCredit.js
+> git show :credit/index.js
+> git show :credit/src/controllers/updateCredit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse ex7
+> git rev-parse --symbolic-full-name ex7@{u}
+fatal: no upstream configured for branch 'ex7'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :credit/src/urls.js
+> git show :credit/src/clients/updateCredit.js
+> git show :credit/src/transactions/updateCredit.js
+> git show :credit/src/queue.js
