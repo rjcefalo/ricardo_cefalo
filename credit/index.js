@@ -6,15 +6,37 @@ const {
   ValidationError
 } = require("express-json-validator-middleware");
 
+const sendMessage = require("./src/controllers/sendMessage");
+const getMessages = require("./src/controllers/getMessages");
 const getCredit = require("./src/controllers/getCredit");
 const updateCredit = require("./src/controllers/updateCredit");
-
+const getMessageStatus = require("./src/controllers/getMessageStatus");
 
 const app = express();
 
 const validator = new Validator({ allErrors: true });
 const { validate } = validator;
 
+const messageSchema = {
+  type: "object",
+  required: ["destination", "body"],
+  properties: {
+    destination: {
+      type: "string"
+    },
+    body: {
+      type: "string"
+    },
+    location: {
+      name: {
+        type: "string"
+      },
+      cost: {
+        type: "number"
+      }
+    }
+  }
+};
 
 const creditSchema = {
   type: "object",
@@ -29,7 +51,12 @@ const creditSchema = {
   }
 };
 
-
+app.post(
+  "/messages",
+  bodyParser.json(),
+  validate({ body: messageSchema }),
+  sendMessage
+);
 
 app.post(
   "/credit",
@@ -38,9 +65,11 @@ app.post(
   updateCredit
 );
 
+app.get("/messages", getMessages);
 
 app.get("/credit", getCredit);
 
+app.get("/message/:messageId/status", getMessageStatus);
 
 app.use(function(err, req, res, next) {
   console.log(res.body);
