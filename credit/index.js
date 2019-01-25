@@ -40,7 +40,7 @@ app.post(
 app.get("/credit", getCredit);
 
 app.use(function(err, req, res, next) {
-  console.log(res.body);
+
   if (err instanceof ValidationError) {
     res.sendStatus(400);
   } else {
