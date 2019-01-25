@@ -58,7 +58,8 @@ services:
       - mongodb_message
       - replica_message
       - redis
-  message:
+
+  message2:
     build: message/
     ports:
       - "9005:9006"
@@ -73,7 +74,8 @@ services:
       - mongodb_message
       - replica_message
       - redis
-  message:
+
+  message3:
     build: message/
     ports:
       - "9004:9006"
@@ -88,6 +90,7 @@ services:
       - mongodb_message
       - replica_message
       - redis
+
   credit:
     build: credit/
     ports:
@@ -101,7 +104,7 @@ services:
       - replica_credit
       - redis
   messageapp:
-    image: cabify/backend-bootcamp-messageapp
+    image: cabify/backend-bootcamp-messageapp:exercise10
     ports:
       - "3000:3000"
 
@@ -144,7 +147,10 @@ services:
     image: nginx:latest
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-
+    links:
+      - "message:message"
+      - "message2:message2"
+      - "message3:message3"
     depends_on:
       - message
     ports:
