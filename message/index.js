@@ -48,7 +48,6 @@ app.get("/messages", getMessages);
 app.get("/message/:messageId/status", getMessageStatus);
 
 app.use(function(err, req, res, next) {
-  //console.log(res.body);
   if (err instanceof ValidationError) {
     res.sendStatus(400);
   } else {

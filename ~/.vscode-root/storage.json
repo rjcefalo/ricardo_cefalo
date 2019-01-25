@@ -1,0 +1,32 @@
+{
+    "telemetry.machineId": "89dccc6054989ed991cb926aea9c300a99abb444999f63ef7b835572dfe2dccc",
+    "theme": "vs-dark",
+    "themeBackground": "#1e1e1e",
+    "pickerWorkingDir": "/home/ricardo/code",
+    "openedPathsList": {
+        "workspaces2": [
+            "file:///home/ricardo/code/ricardo_cefalo"
+        ],
+        "files2": []
+    },
+    "windowsState": {
+        "openedWindows": [],
+        "lastActiveWindow": {
+            "folderUri": {
+                "$mid": 1,
+                "fsPath": "/home/ricardo/code/ricardo_cefalo",
+                "external": "file:///home/ricardo/code/ricardo_cefalo",
+                "path": "/home/ricardo/code/ricardo_cefalo",
+                "scheme": "file"
+            },
+            "backupPath": "/home/ricardo/code/ricardo_cefalo/~/.vscode-root/Backups/1f20bc4aa4a104ee3ce669cf49f5bccc",
+            "uiState": {
+                "mode": 0,
+                "x": 67,
+                "y": 27,
+                "width": 1853,
+                "height": 1053
+            }
+        }
+    }
+}

@@ -12,14 +12,9 @@ module.exports = function () {
         getCredit()
         .then(result=>{
             if (result[0].amount){
-                console.log ("/////////////////////////      Data to be sent to message queue        ////////////////////////////")
-                console.log(job.data)
-                console.log("\n\n\n\n\n")
                 MessageQueue.add(job.data)
             }else {
                 console.log ("/////////////////////////      not enough credits        ////////////////////////////")
-
-                console.log("\n\n\n\n\n")
             }
         })
         done();

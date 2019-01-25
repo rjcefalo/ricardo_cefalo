@@ -75,9 +75,6 @@ module.exports = function addJob(jobParams) {
 
   return processingMessage(messageParams)
     .then(() => {
-      console.log ("/////////////////////////      params to be sent to credit queue        ////////////////////////////")
-      console.log(messageParams)
-      console.log("\n\n\n\n\n")
       return CreditQueue(messageParams)
     })
     .then(() => {
